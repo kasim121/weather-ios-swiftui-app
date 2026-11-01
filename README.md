@@ -26,3 +26,9 @@ The app follows Clean Architecture with SOLID-oriented dependency inversion:
 - Location Services enabled for the app
 
 The project uses the Open-Meteo API and does not require an API key.
+
+## Screenshots
+
+### Weather dashboard
+
+![Weather dashboard](Screenshots/weather-dashboard.png)
