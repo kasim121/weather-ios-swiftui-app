@@ -1,37 +1,5 @@
 import SwiftUI
 
-@MainActor
-struct ContentView: View {
-    @State private var viewModel: WeatherViewModel
-
-    init(viewModel: WeatherViewModel) {
-        _viewModel = State(initialValue: viewModel)
-    }
-
-    var body: some View {
-        NavigationStack {
-            Group {
-                switch viewModel.state {
-                case .idle, .loading:
-                    LoadingWeatherView()
-                case .loaded(let snapshot):
-                    WeatherDashboardView(snapshot: snapshot) {
-                        Task { await viewModel.retry() }
-                    }
-                case .failed(let message):
-                    WeatherErrorView(message: message) {
-                        Task { await viewModel.retry() }
-                    }
-                }
-            }
-            .navigationTitle("Weather")
-            .task {
-                await viewModel.load()
-            }
-        }
-    }
-}
-
 struct LoadingWeatherView: View {
     var body: some View {
         ContentUnavailableView {
@@ -84,7 +52,7 @@ struct WeatherDashboardView: View {
     }
 }
 
-struct CurrentWeatherCard: View {
+private struct CurrentWeatherCard: View {
     let snapshot: WeatherSnapshot
 
     var body: some View {
@@ -147,7 +115,7 @@ struct CurrentWeatherCard: View {
     }
 }
 
-struct WeatherMetric: View {
+private struct WeatherMetric: View {
     let title: String
     let value: String
 
@@ -162,7 +130,7 @@ struct WeatherMetric: View {
     }
 }
 
-struct ForecastSection: View {
+private struct ForecastSection: View {
     let forecast: [DailyForecast]
 
     var body: some View {
@@ -178,7 +146,7 @@ struct ForecastSection: View {
     }
 }
 
-struct ForecastRow: View {
+private struct ForecastRow: View {
     let forecast: DailyForecast
 
     var body: some View {
