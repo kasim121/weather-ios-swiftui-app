@@ -24,8 +24,7 @@ App/
 │   ├── Data/
 │   │   ├── DataSources/             Location and weather API services
 │   │   ├── Models/                  API response types
-│   │   ├── Mappers/                 DTO-to-domain conversion
-│   │   └── RepositoryImpl/          Concrete repository implementation
+│   │   └── RepositoryImpl/          Repository and DTO-to-domain conversion
 │   ├── Domain/
 │   │   ├── Entity/                  Business models
 │   │   ├── Repository/              Repository and location abstractions
