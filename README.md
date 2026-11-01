@@ -19,10 +19,11 @@ App/
 ├── Core/
 │   ├── Constants/                  Shared API configuration
 │   ├── DI/                         Composition root
+│   ├── Location/                   Shared Core Location implementation
 │   └── Network/                    Reusable HTTP client abstraction
 ├── Features/Weather/
 │   ├── Data/
-│   │   ├── DataSources/             Location and weather API services
+│   │   ├── DataSource/              Weather API protocol and implementation
 │   │   ├── Models/                  API response types
 │   │   └── RepositoryImpl/          Repository and DTO-to-domain conversion
 │   ├── Domain/

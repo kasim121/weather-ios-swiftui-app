@@ -15,7 +15,7 @@ enum WeatherDataSourceError: LocalizedError {
     }
 }
 
-final class OpenMeteoDataSource: WeatherDataSource {
+final class WeatherDataSourceImpl: WeatherDataSource {
     private let apiClient: APIClient
 
     init(apiClient: APIClient) {

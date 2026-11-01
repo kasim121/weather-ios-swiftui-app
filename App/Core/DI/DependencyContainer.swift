@@ -3,7 +3,7 @@ enum DependencyContainer {
     static func makeWeatherViewModel() -> WeatherViewModel {
         let locationProvider = CoreLocationProvider()
         let apiClient = URLSessionAPIClient()
-        let dataSource = OpenMeteoDataSource(apiClient: apiClient)
+        let dataSource = WeatherDataSourceImpl(apiClient: apiClient)
         let repository = WeatherRepositoryImpl(dataSource: dataSource)
         let useCase = FetchWeatherUseCase(
             locationProvider: locationProvider,
